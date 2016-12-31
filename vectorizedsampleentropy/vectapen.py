@@ -5,7 +5,7 @@ from . import np
 class VectApEn(object):
     """
     VectApEn
-    Version 0.0.1
+    Version 0.0.2
     """
 
     def __init__(self):
@@ -25,25 +25,18 @@ class VectApEn(object):
         """
         N = len(L)
     
-        B = np.zeros(N-m)
-        A = np.zeros(N-m)
-    
         # Divide time series and save all templates of length m
         xmi = [L[i:i+m] for i in range(N-m)]
         xmj = [L[i:i+m] for i in range(N-m+1)]
         
-        # Compute each B_i
-        seq = range(len(xmi))
-        for i in seq:
-            B[i] = np.sum(np.abs(xmi[i]-xmj).max(axis=1) <= r)
+        # Compute each B_i            
+        B = [np.sum(np.abs(xmii-xmj).max(axis=1) <= r) for xmii in xmi]
         
         # Similar method to compute each A_i
         m += 1
         xm = [L[i:i+m] for i in range(N-m+1)]
         
-        seq = range(len(xm))
-        for i in seq: 
-            A[i] = np.sum(np.abs(xm[i]-xm).max(axis=1) <= r)
+        A = [np.sum(np.abs(xmi-xm).max(axis=1) <= r) for xmi in xm]
             
         # Compute and return ApEn
         m -= 1

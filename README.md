@@ -1,4 +1,6 @@
 # vectorized-sample-entropy
+Version 0.0.2
+
 Vectorized versions of sample entropy (SampEn) and approximate entropy (ApEn)
 
 Dependencies: numpy>=1.11.2

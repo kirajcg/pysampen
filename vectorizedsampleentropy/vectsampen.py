@@ -5,7 +5,7 @@ from . import np
 class VectSampEn(object):    
     """
     VectSampEn
-    Version 0.0.1
+    Version 0.0.2
     """
     
     def __init__(self):
@@ -32,20 +32,14 @@ class VectSampEn(object):
         xmj = [L[i:i+m] for i in range(N-m+1)]
         
         # Save all matches minus the self-match, compute B
-        seq = range(len(xmi))
-        for i in seq:
-            Bi = np.sum(np.abs(xmi[i]-xmj).max(axis=1) <= r)-1
-            B += Bi
+        B = np.sum([np.sum(np.abs(xmii-xmj).max(axis=1) <= r)-1 for xmii in xmi])
             
         # Similar for computing A
         m += 1
         xm = [L[i:i+m] for i in range(N-m+1)]
         
-        seq = range(len(xm))
-        for i in seq: 
-            Ai = np.sum(np.abs(xm[i]-xm).max(axis=1) <= r)-1
-            A += Ai
-        
+        A = np.sum([np.sum(np.abs(xmi-xm).max(axis=1) <= r)-1 for xmi in xm])
+         
         # Return conditional probability
         return A/B
         
@@ -70,19 +64,13 @@ class VectSampEn(object):
         xmj = [L[i:i+m] for i in range(N-m+1)]
         
         # Save all matches minus the self-match, compute B
-        seq = range(len(xmi))
-        for i in seq:
-            Bi = np.sum(np.abs(xmi[i]-xmj).max(axis=1) <= r)-1
-            B += Bi
+        B = np.sum([np.sum(np.abs(xmii-xmj).max(axis=1) <= r)-1 for xmii in xmi])
             
         # Similar for computing A
         m += 1
         xm = [L[i:i+m] for i in range(N-m+1)]
         
-        seq = range(len(xm))
-        for i in seq: 
-            Ai = np.sum(np.abs(xm[i]-xm).max(axis=1) <= r)-1
-            A += Ai
+        A = np.sum([np.sum(np.abs(xmi-xm).max(axis=1) <= r)-1 for xmi in xm])
         
         # Return SampEn
         return -np.log(A/B)
@@ -108,19 +96,13 @@ class VectSampEn(object):
         xmj = [L[i:i+m] for i in range(N-m+1)]
         
         # Save all matches minus the self-match, compute B
-        seq = range(len(xmi))
-        for i in seq:
-            Bi = np.sum(np.abs(xmi[i]-xmj).max(axis=1) <= r)-1
-            B += Bi
+        B = np.sum([np.sum(np.abs(xmii-xmj).max(axis=1) <= r)-1 for xmii in xmi])
             
         # Similar for computing A
         m += 1
         xm = [L[i:i+m] for i in range(N-m+1)]
         
-        seq = range(len(xm))
-        for i in seq: 
-            Ai = np.sum(np.abs(xm[i]-xm).max(axis=1) <= r)-1
-            A += Ai
+        A = np.sum([np.sum(np.abs(xmi-xm).max(axis=1) <= r)-1 for xmi in xm])
             
         # return QSE
         return -np.log(A/B)+np.log(2*r)
