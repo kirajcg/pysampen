@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
+from . import np
 
 class VectApEn(object):
     """
