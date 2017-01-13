@@ -7,20 +7,21 @@ Dependencies: numpy>=1.11.2
 
 To import: 
 ```python
-import vectorizedsampleentropy as vse
+from vectorizedsampleentropy import vectsampen as vse
+from vectorizedsampleentropy import vectapen as vae
 ```
 
 Functions: 
 ```python
-condprob(L, m, r) # Calculates conditional probability A/B
-sampen(L, m, r)   # Calculates sample entropy
-qse(L, m, r)      # Calculates quadratic sample entropy
-apen(L, m, r)     # Calculates approximate entropy
+vectsampen.condprob(L, m, r) # Calculates conditional probability A/B
+vectsampen.sampen(L, m, r)   # Calculates sample entropy
+vectsampen.qse(L, m, r)      # Calculates quadratic sample entropy
+vectapen.apen(L, m, r)       # Calculates approximate entropy
 ```
 
 Usage examples: 
 ```python
-import vectorizedsampleentropy as vse
+from vectorizedsampleentropy import vectsampen as vse
 import numpy as np
 
 L = np.random.normal(0, 1, 1000)
