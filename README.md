@@ -12,10 +12,10 @@ import vectorizedsampleentropy as vse
 
 Functions: 
 ```python
-VectSampEn.condprob # Calculates conditional probability A/B
-VectSampEn.sampen   # Calculates sample entropy
-VectSampEn.qse      # Calculates quadratic sample entropy
-VectApEn.apen       # Calculates approximate entropy
+condprob(L, m, r) # Calculates conditional probability A/B
+sampen(L, m, r)   # Calculates sample entropy
+qse(L, m, r)      # Calculates quadratic sample entropy
+apen(L, m, r)     # Calculates approximate entropy
 ```
 
 Usage examples: 
