@@ -3,10 +3,10 @@
 from . import np
 
 
-class VectApEn(object):
+class ApEn(object):
     """
-    VectApEn
-    Version 0.0.3
+    ApEn
+    Version 0.1.0
     """
 
     def __init__(self):
@@ -41,9 +41,8 @@ class VectApEn(object):
             
         # Compute and return ApEn
         m -= 1
-        ApEn = -np.sum(np.log(np.divide(A,B)))/(N-m)
-        return ApEn
+        return -np.sum(np.log(np.divide(A,B)))/(N-m)
 
 
-_inst = VectApEn()
+_inst = ApEn()
 apen = _inst.apen

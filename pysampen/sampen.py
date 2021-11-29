@@ -3,10 +3,10 @@
 from . import np
 
 
-class VectSampEn(object):    
+class SampEn(object):    
     """
-    VectSampEn
-    Version 0.0.3
+    SampEn
+    Version 0.1.0
     """
     
     def __init__(self):
@@ -46,7 +46,7 @@ class VectSampEn(object):
         
     def sampen(self, L, m, r):
         """ 
-        Calculates sample entropy (SampEn) of a time series 
+        Calculates sample entropy (SE) of a time series 
         
         Input: 
             L: Time series
@@ -109,7 +109,7 @@ class VectSampEn(object):
         return -np.log(A/B)+np.log(2*r)
 
 
-_inst = VectSampEn()
+_inst = SampEn()
 condprob = _inst.condprob
 sampen = _inst.sampen
 qse = _inst.qse
